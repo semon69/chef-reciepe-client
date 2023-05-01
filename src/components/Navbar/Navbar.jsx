@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
@@ -13,8 +13,8 @@ const Navbar = () => {
                 </div>
                 <div className='flex justify-around gap-8'>
                     <div className='inline-flex gap-8'>
-                        <Link to='/'>Home</Link>
-                        <Link to='blog'>Blog</Link>
+                        <NavLink className={({ isActive}) => isActive ? 'bg-blue-800 text-white px-2 rounded' : ''} to='/'>Home</NavLink>
+                        <NavLink className={({ isActive}) => isActive ? 'bg-blue-800 text-white px-2 rounded' : ''} to='blog'>Blog</NavLink>
                     </div>
                     <div className="">
 
