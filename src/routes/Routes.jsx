@@ -6,6 +6,7 @@ import Blog from '../components/pages/Blog/Blog';
 import Login from '../components/Login/Login';
 import ViewRecipes from '../components/pages/ViewRecipies/ViewRecipes';
 import Errorpage from '../components/pages/Errorpage/Errorpage';
+import Register from '../components/Login/Register';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         {
             path: '/login',
             element:<Login></Login>
+        },
+        {
+            path:'/register',
+            element: <Register></Register>
         }
       ]
     },
