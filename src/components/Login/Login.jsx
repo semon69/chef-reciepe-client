@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    
+
     const handleSignIn = event => {
         event.preventDefault()
         const form = event.target;
@@ -18,8 +18,9 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 form.reset()
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
+        
     }
     return (
         <div>
@@ -50,6 +51,10 @@ const Login = () => {
                                 <button className="btn btn-black">Login</button>
                             </div>
                         </form>
+
+                        <button onClick={googleSignIn} className="btn btn-outline btn-primary mx-3">Sign in with Google</button>
+                        <button className="btn btn-outline btn-primary mx-3 my-5">Sign in with Github</button>
+
                     </div>
                 </div>
             </div>
