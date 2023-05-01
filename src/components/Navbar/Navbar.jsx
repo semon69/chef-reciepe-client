@@ -6,10 +6,10 @@ const Navbar = () => {
     const {user, logout} = useContext(AuthContext);
     return (
         <div>
-            <h1>Welcome to French Cuisine</h1>
+            <h1>Welcome to French Chef's Website</h1>
             <div className="navbar bg-base-100 flex justify-between">
                 <div className="">
-                    <a className="btn btn-ghost normal-case text-xl">French Cuisine</a>
+                    <a className="btn btn-ghost normal-case text-xl">French Chef</a>
                 </div>
                 <div className='flex justify-around gap-8'>
                     <div className='inline-flex gap-8'>

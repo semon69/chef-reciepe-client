@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleRecipe = ({recipe}) => {
     const {name, rating, method, ingredients} = recipe;
+    const [btn, setBtn] = useState(false);
+
+    const notify = () =>{
+        toast("Added to favorite!")
+        setBtn(true)
+    };
     return (
         <div>
             <div>
@@ -16,7 +24,8 @@ const SingleRecipe = ({recipe}) => {
                         </div>
                         <p>{method}</p>
                         <p>Ratings: {rating}</p>
-                        <button className="btn btn-outline btn-primary">Favorite</button>
+                        <button onClick={notify} disabled={btn} className="btn btn-primary">Favorite</button>
+                        <ToastContainer />
                    </div>
                 </div>
             </div>
