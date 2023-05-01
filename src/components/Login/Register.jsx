@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateCurrentUser, updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
+    const [error, setError] = useState('')
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target;
@@ -12,10 +13,21 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password)
+        console.log(name, photo, email, password);
+        if(!password){
+            setError("Email and Password shouldn't be empty");
+            return
+        }
+        if(password.length < 6){
+            setError('Password must be more than 6 character')
+            return;
+        }
+        
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                setError('')
+                form.reset()
                 updateUser(name, photo)
                     .then(() => { })
             })
@@ -30,6 +42,7 @@ const Register = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleRegister} className="card-body">
+                            <p className='my-5 text-red-400'>{error}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

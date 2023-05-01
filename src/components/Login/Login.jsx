@@ -12,6 +12,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user)
+                form.reset()
             })
     }
     return (

@@ -7,6 +7,7 @@ import Login from '../components/Login/Login';
 import ViewRecipes from '../components/pages/ViewRecipies/ViewRecipes';
 import Errorpage from '../components/pages/Errorpage/Errorpage';
 import Register from '../components/Login/Register';
+import PrivateRoute from '../provider/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/chefs/:id',
-            element:<ViewRecipes></ViewRecipes>,
+            element:<PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
             loader: ({params}) => fetch(`https://chef-recepie-hunter-server-semon69.vercel.app/chefs/${params.id}`)
         },
         {
