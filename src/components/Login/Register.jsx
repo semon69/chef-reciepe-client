@@ -4,7 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { updateCurrentUser, updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, logout } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const handleRegister = event => {
@@ -15,23 +15,25 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
-        if(!password){
+        if(!password && !email){
             setError("Email and Password shouldn't be empty");
-            return
+            return;
         }
-        if(password.length < 6){
+
+        else if(password.length < 6){
             setError('Password must be more than 6 character')
             return;
         }
         
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 setError('')
                 setSuccess('Register Successfully')
                 updateUser(name, photo)
                     .then(() => { })
                     form.reset()
+                    logout()
             })
     }
     return (

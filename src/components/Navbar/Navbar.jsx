@@ -22,7 +22,7 @@ const Navbar = () => {
                                 <div className="dropdown dropdown-end inline-flex justify-center items-center">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
-                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+                                            <img title={user.displayName} src={`${user?.photoURL}`} alt='Photo'/>
                                         </div>
                                     </label>
                                     <button onClick={logout} className='btn btn-primary'>Logout</button>

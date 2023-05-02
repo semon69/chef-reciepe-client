@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
-
+    const { signIn, googleSignIn, githubSignIn,forgotPassword } = useContext(AuthContext);
+    const emailRef = useRef()
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -20,8 +21,18 @@ const Login = () => {
                 form.reset()
                 navigate(from, { replace: true })
             })
-        
+
     }
+
+    const handleResetPassword =() => {
+        const email = emailRef.current.value;
+        forgotPassword(email)
+        .then(()=> {
+            alert('Check Your email')
+        })
+    }
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-white">
@@ -36,7 +47,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" name='email' placeholder="email" ref={emailRef} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -45,15 +56,18 @@ const Login = () => {
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <p className="label-text-alt link link-hover"><Link to='/register'>Don't have account?  Register</Link></p>
+                                    <br />
+                                    
                                 </label>
+                                <a onClick={handleResetPassword} className="label-text-alt link link-hover">Forgot Password?</a>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
 
-                        <button onClick={googleSignIn} className="btn btn-outline btn-primary mx-3">Sign in with Google</button>
-                        <button onClick={githubSignIn} className="btn btn-outline btn-primary mx-3 my-5">Sign in with Github</button>
+                        <button onClick={googleSignIn} className="btn btn-outline btn-primary mx-3"><FaGoogle></FaGoogle><span className='ms-3'> Sign in with Google</span></button>
+                        <button onClick={githubSignIn} className="btn btn-outline btn-primary mx-3 my-5"><FaGithub></FaGithub><span className='ms-3'> Sign in with Github</span></button>
 
                     </div>
                 </div>

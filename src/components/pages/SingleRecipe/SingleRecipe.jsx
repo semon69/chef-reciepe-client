@@ -8,7 +8,7 @@ const SingleRecipe = ({recipe}) => {
 
     const notify = () =>{
         toast("Added to favorite!")
-        setBtn(true)
+        setBtn(!btn)
     };
     return (
         <div>
