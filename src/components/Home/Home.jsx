@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css'
 import { useLoaderData } from 'react-router-dom';
 import ChefsDetails from '../pages/SignleChefsDetails/ChefsDetails';
+import Menu from '../pages/menu/Menu';
 const Home = () => {
     const chefs = useLoaderData();
     return (
@@ -23,10 +24,15 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <h1 className='text-center text-white font-bold text-5xl mb-10 italic'>Our Chef's</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 max-w-7xl w-full mx-auto my-10 px-5'>
                 {
                     chefs.map(chef => <ChefsDetails key={chef.id} chef={chef}></ChefsDetails>)
                 }
+            </div>
+            <div>
+                <Menu></Menu>
+                
             </div>
         </div>
     );
