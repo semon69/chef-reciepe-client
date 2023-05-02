@@ -1,10 +1,11 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn, googleSignIn, githubSignIn,forgotPassword } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn, forgotPassword } = useContext(AuthContext);
+    const [error, setError] = useState('')
     const emailRef = useRef()
     const navigate = useNavigate();
     const location = useLocation();
@@ -21,15 +22,21 @@ const Login = () => {
                 form.reset()
                 navigate(from, { replace: true })
             })
+            .catch(error => {
+                setError(error.message)
+            })
 
     }
 
-    const handleResetPassword =() => {
+    const handleResetPassword = () => {
         const email = emailRef.current.value;
         forgotPassword(email)
-        .then(()=> {
-            alert('Check Your email')
-        })
+            .then(() => {
+                alert('Check Your email')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
 
 
@@ -43,6 +50,7 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSignIn} className="card-body">
+                            <p className='text-red-600'>{error}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -57,7 +65,7 @@ const Login = () => {
                                 <label className="label">
                                     <p className="label-text-alt link link-hover"><Link to='/register'>Don't have account?  Register</Link></p>
                                     <br />
-                                    
+
                                 </label>
                                 <a onClick={handleResetPassword} className="label-text-alt link link-hover">Forgot Password?</a>
                             </div>

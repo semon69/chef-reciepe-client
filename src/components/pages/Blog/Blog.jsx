@@ -5,10 +5,13 @@ import Pdf from "react-to-pdf";
 const ref = React.createRef();
 const Blog = () => {
     return (
-        <div className='w-full max-w-7xl mx-auto my-10 p-10'>
-            <Pdf targetRef={ref} filename="code-example.pdf">
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-            </Pdf>
+        <div className='w-full max-w-7xl mx-auto mb-10 p-10'>
+            <p className='text-5xl font-bold my-10 text-center text-white'>Frequently asked<span className='text-blue-600'> Questions</span></p>
+            <div className='text-center my-10'>
+                <Pdf targetRef={ref} filename="blog-page.pdf">
+                    {({ toPdf }) => <button className='btn btn-primary' onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
+            </div>
             <div ref={ref}>
                 <div className='text-white bg-blue-950 p-5 rounded'>
                     <p className='font-bold text-blue-600'>Questions:</p>
