@@ -3,6 +3,7 @@ import './Home.css'
 import { useLoaderData } from 'react-router-dom';
 import ChefsDetails from '../pages/SignleChefsDetails/ChefsDetails';
 import Menu from '../pages/menu/Menu';
+import LatestRecipe from '../pages/latestRecipe/LatestRecipe';
 const Home = () => {
     const chefs = useLoaderData();
     return (
@@ -33,6 +34,9 @@ const Home = () => {
             <div>
                 <Menu></Menu>
                 
+            </div>
+            <div>
+                <LatestRecipe></LatestRecipe>
             </div>
         </div>
     );
