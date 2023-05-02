@@ -29,7 +29,7 @@ const Register = () => {
             .then(result => {
                 // console.log(result.user);
                 setError('')
-                setSuccess('Register Successfully')
+                setSuccess('Registration Success. Please login Now.')
                 updateUser(name, photo)
                     .then(() => { })
                     form.reset()

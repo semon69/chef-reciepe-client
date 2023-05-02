@@ -15,11 +15,11 @@ const Navbar = () => {
                         <NavLink className={({ isActive}) => isActive ? 'bg-blue-800 text-white px-2 rounded' : ''} to='/'>Home</NavLink>
                         <NavLink className={({ isActive}) => isActive ? 'bg-blue-800 text-white px-2 rounded' : ''} to='blog'>Blog</NavLink>
                     </div>
-                    <div className="">
+                    <div className="flex-col">
 
                         {
                             user ?
-                                <div className="dropdown dropdown-end inline-flex justify-center items-center">
+                                <div className="dropdown dropdown-end lg:inline-flex  justify-center items-center">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img title={user.displayName} src={`${user?.photoURL}`} alt='Photo'/>
