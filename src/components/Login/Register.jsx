@@ -6,6 +6,7 @@ import { updateCurrentUser, updateProfile } from 'firebase/auth';
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target;
@@ -27,9 +28,10 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setError('')
-                form.reset()
+                setSuccess('Register Successfully')
                 updateUser(name, photo)
                     .then(() => { })
+                    form.reset()
             })
     }
     return (
@@ -43,6 +45,7 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleRegister} className="card-body">
                             <p className='my-5 text-red-400'>{error}</p>
+                            <p className='my-5 text-green-400'>{success}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

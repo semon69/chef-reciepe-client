@@ -4,7 +4,7 @@ const LatestRecipe = () => {
     return (
         <div className=' w-ful max-w-7xl mx-auto my-10'>
             <h1 className='text-center text-white font-bold text-5xl mb-10 italic'>Our latest Recipe</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 px-10'>
                 <div className="card w-96 glass mb-10">
                     <figure><img src="https://tinysalt.loftocean.com/elementor/wp-content/uploads/sites/4/2022/08/monika-grabkowska-dGxSJzhgW0o-unsplash.jpg" alt="car!" /></figure>
                     <div className="card-body">
