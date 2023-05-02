@@ -24,10 +24,10 @@ const Login = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-white">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-3xl font-bold">Login now!</h1>
+                        <h1 className="text-3xl font-bold text-black">Login now!</h1>
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -48,7 +48,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-black">Login</button>
+                                <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
 

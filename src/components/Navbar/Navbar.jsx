@@ -5,11 +5,10 @@ import { AuthContext } from '../../provider/AuthProvider';
 const Navbar = () => {
     const {user, logout} = useContext(AuthContext);
     return (
-        <div>
-            <h1>Welcome to French Chef's Website</h1>
+        <div className='max-w-7xl w-full mx-auto'>
             <div className="navbar bg-base-100 flex justify-between">
                 <div className="">
-                    <a className="btn btn-ghost normal-case text-xl">French Chef</a>
+                    <a className="text-white font-bold text-4xl ">French Chef</a>
                 </div>
                 <div className='flex justify-around gap-8'>
                     <div className='inline-flex gap-8'>
@@ -26,10 +25,10 @@ const Navbar = () => {
                                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
                                         </div>
                                     </label>
-                                    <button onClick={logout} className='btn btn-active'>Logout</button>
+                                    <button onClick={logout} className='btn btn-primary'>Logout</button>
                                 </div>
                                 :
-                                <button className="btn btn-active"><Link to='/login'>Login</Link></button>
+                                <button className="btn btn-primary"><Link to='/login'>Login</Link></button>
                         }
 
                     </div>

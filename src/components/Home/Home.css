@@ -4,5 +4,6 @@
     width: 100%;
     height: 100vh;
     background-size: cover;
-
+    background-color: rgb(82, 77, 77);
+    background-blend-mode: multiply;
 }

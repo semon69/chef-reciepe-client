@@ -34,10 +34,10 @@ const Register = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-white">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-3xl font-bold">Register!</h1>
+                        <h1 className="text-3xl font-bold text-black">Register!</h1>
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -71,7 +71,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-black">Register</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
                     </div>

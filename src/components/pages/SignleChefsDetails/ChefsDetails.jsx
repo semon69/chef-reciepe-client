@@ -5,9 +5,9 @@ const ChefsDetails = ({chef}) => {
     const {experience, likes, name, picture, recipes, id} = chef;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl my-10 rounded">
                     <figure><img className='h-64' src={picture} alt="Shoes" /></figure>
-                    <div className="card-body">
+                    <div className="card-body bg-white text-black">
                         <h2 className="card-title">{name}</h2>
                         <h2>{experience}Years Experience</h2>
                         <p>{likes} Likes</p>
