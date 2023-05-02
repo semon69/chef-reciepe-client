@@ -13,17 +13,19 @@ const SingleRecipe = ({recipe}) => {
     return (
         <div>
             <div>
-                <div className="card w-96 bg-base-100 shadow-xl border-white">
-                    <div className="card-body">
-                        <h2 className="card-title">Recipe Name</h2>
-                        <p>{ name}</p>
+                <div className="card w-96 bg-white shadow-xl border-white">
+                    <div className="card-body text-black">
+                        <h2 className="card-title">Recipe Name:</h2>
+                        <p className='font-bold text-blue-800'>{ name}</p>
+                        <p className='font-bold'>Ingredients: </p>
                         <div>
                             {
                                 ingredients.map(gradient => <p key={gradient}># {gradient}</p>)
                             }
                         </div>
+                        <p className='font-bold'>Cooking Method: </p>
                         <p>{method}</p>
-                        <p>Ratings: {rating}</p>
+                        <p className='font-bold'>Ratings: {rating}</p>
                         <button onClick={notify} disabled={btn} className="btn btn-primary">Favorite</button>
                         <ToastContainer />
                    </div>

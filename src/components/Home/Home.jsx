@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <div style={{}} className='bgImage my-10'>
-                <div className='lg:flex justify-center items-center gap-16 p-5 '>
+                <div className='lg:flex justify-center items-center gap-16 p-5 italic'>
                     <div>
                         <p className='text-5xl font-bold lg:mt-40 mt-20'>Welcome to <br /> <span className='text-blue-600'>French Chef's Website</span></p>
                     </div>
