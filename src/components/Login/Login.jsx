@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -53,7 +53,7 @@ const Login = () => {
                         </form>
 
                         <button onClick={googleSignIn} className="btn btn-outline btn-primary mx-3">Sign in with Google</button>
-                        <button className="btn btn-outline btn-primary mx-3 my-5">Sign in with Github</button>
+                        <button onClick={githubSignIn} className="btn btn-outline btn-primary mx-3 my-5">Sign in with Github</button>
 
                     </div>
                 </div>
