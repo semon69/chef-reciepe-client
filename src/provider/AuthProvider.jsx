@@ -41,12 +41,12 @@ const AuthProvider = ({ children }) => {
 
     const googleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
-            .then(() => { });
+            
     }
 
     const githubSignIn = () => {
         return signInWithPopup(auth, githubProvider)
-            .then(() => { })
+            
     }
 
     useEffect(() => {

@@ -33,6 +33,7 @@ const Register = () => {
             })
             .catch(error => {
                 setError(error.message)
+                setSuccess('')
             })
     }
     return (

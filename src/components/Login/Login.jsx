@@ -27,6 +27,25 @@ const Login = () => {
             })
 
     }
+    const handleGoogleSign = () => {
+        googleSignIn()
+            .then(() => {
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    const handleGithubSign = () => {
+        githubSignIn()
+            .then(() => {
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
 
     const handleResetPassword = () => {
         const email = emailRef.current.value;
@@ -38,6 +57,8 @@ const Login = () => {
                 setError(error.message)
             })
     }
+
+
 
 
     return (
@@ -74,8 +95,8 @@ const Login = () => {
                             </div>
                         </form>
 
-                        <button onClick={googleSignIn} className="btn btn-outline btn-primary mx-3"><FaGoogle></FaGoogle><span className='ms-3'> Sign in with Google</span></button>
-                        <button onClick={githubSignIn} className="btn btn-outline btn-primary mx-3 my-5"><FaGithub></FaGithub><span className='ms-3'> Sign in with Github</span></button>
+                        <button onClick={handleGoogleSign} className="btn btn-outline btn-primary mx-3"><FaGoogle></FaGoogle><span className='ms-3'> Sign in with Google</span></button>
+                        <button onClick={handleGithubSign} className="btn btn-outline btn-primary mx-3 my-5"><FaGithub></FaGithub><span className='ms-3'> Sign in with Github</span></button>
 
                     </div>
                 </div>
