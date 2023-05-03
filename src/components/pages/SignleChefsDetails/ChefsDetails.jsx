@@ -17,9 +17,9 @@ const ChefsDetails = ({ chef }) => {
 
                 <div className="card-body bg-white text-black">
                     <h2 className="card-title">{name}</h2>
-                    <h2>{experience}Years Experience</h2>
+                    <h2>{experience} Years Experience</h2>
                     <p>{likes} Likes</p>
-                    <p className='font-bold'>Recipes</p>
+                    <p className='font-bold'>{recipes.length } Recipes</p>
                     <ol>
                         {
                             recipes.map(recipe => <li key={recipe.name}># {recipe.name}</li>)

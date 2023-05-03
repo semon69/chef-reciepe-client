@@ -23,7 +23,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                // console.log(result.user);
+                
                 setError('')
                 setSuccess('Registration Success. Please login Now.')
                 updateUser(name, photo)
